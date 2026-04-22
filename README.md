@@ -105,10 +105,14 @@ To avoid typing a path every time you clip:
 
 ### AI agent / AI 에이전트
 
-This template targets **Claude Code** (auto-reads `CLAUDE.md`). Other agents work too:
+This template supports **Claude Code, Codex CLI, Cursor, Windsurf, and Gemini CLI** through a single `CLAUDE.md` + auto-generated mirrors.
 
-- **OpenAI Codex CLI** — rename `CLAUDE.md` → `AGENTS.md` (or symlink).
-- **Cursor / Windsurf** — open the folder; IDE picks up `CLAUDE.md` as context.
+이 템플릿은 **Claude Code, Codex CLI, Cursor, Windsurf, Gemini CLI**를 단일 `CLAUDE.md` + 자동 생성 미러로 지원.
+
+- After editing any `CLAUDE.md`, run: `bash scripts/sync-agent-configs.sh` — regenerates `AGENTS.md` (Codex) and `GEMINI.md` (Gemini) everywhere.
+  `CLAUDE.md` 수정 후: `bash scripts/sync-agent-configs.sh` 실행 → `AGENTS.md`·`GEMINI.md` 자동 생성.
+- Full guide including **token-optimization tips**: [`MULTI-AGENT-GUIDE.md`](MULTI-AGENT-GUIDE.md).
+  **토큰 최적화 팁** 포함 전체 가이드: [`MULTI-AGENT-GUIDE.md`](MULTI-AGENT-GUIDE.md).
 
 ---
 
@@ -176,6 +180,7 @@ Full design rationale: [FOLDER-STRUCTURE.md](FOLDER-STRUCTURE.md).
 - [`ONBOARDING.md`](ONBOARDING.md) — **first-run integration guide ⭐**
 - [`FOLDER-STRUCTURE.md`](FOLDER-STRUCTURE.md) — multi-hub design
 - [`TEMPLATE-SYNC.md`](TEMPLATE-SYNC.md) — **template ↔ personal vault sync workflow ⭐**
+- [`MULTI-AGENT-GUIDE.md`](MULTI-AGENT-GUIDE.md) — **multi-agent usage + token optimization ⭐**
 
 ### Templates / 템플릿
 

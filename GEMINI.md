@@ -1,3 +1,4 @@
+<!-- AUTO-GENERATED from CLAUDE.md by scripts/sync-agent-configs.sh — do not edit / CLAUDE.md에서 자동 생성. 직접 수정 금지 -->
 # CLAUDE.md — Root Schema (Multi-Hub Vault) / 루트 스키마 (멀티 허브 볼트)
 
 > This vault is a **multi-hub PKM** built on the [LLM Wiki](llm-wiki.md) pattern. This file defines rules common to ALL hubs. Each hub may add its own `<hub>/CLAUDE.md` to override or extend.
