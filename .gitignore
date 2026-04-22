@@ -1,0 +1,39 @@
+# --- Inbox / clipper landing zone ---
+_inbox/
+**/raw/_inbox/
+
+# --- Personal data patterns / 개인 데이터 패턴 ---
+# Hubs marked private (use suffix or prefix to opt-in)
+*-private/
+private-*/
+
+# Personal hubs by convention
+personal-*/raw/
+personal-*/wiki/
+
+# --- Obsidian local state / 옵시디언 로컬 상태 ---
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# --- Large media / 대용량 미디어 ---
+**/raw/assets/*.mp4
+**/raw/assets/*.mov
+**/raw/assets/*.webm
+**/raw/assets/*.zip
+
+# --- OS / IDE noise ---
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# --- Optional: exclude all hub data from this template repo ---
+# Uncomment when using this folder PURELY as the template (not as a working vault):
+# /*/raw/
+# /*/wiki/sources/
+# /*/wiki/entities/
+# /*/wiki/concepts/
+# !templates/**
+# !_shared/**
