@@ -21,6 +21,7 @@
 |---|---|---|
 | [`hub-study/`](hub-study/) | Bootstrap a study-type hub (user-authored notes + LLM synthesis) | [`hub-study/README.md`](hub-study/README.md) |
 | [`hub-research/`](hub-research/) | Bootstrap a research-type hub (raw sources + LLM-built wiki) | [`hub-research/README.md`](hub-research/README.md) |
+| [`hub-project/`](hub-project/) | Bootstrap a project hub (brief, decisions, deliverables + embedded research) | [`hub-project/README.md`](hub-project/README.md) |
 
 > Bootstrapping happens automatically during the [`ONBOARDING.md`](../ONBOARDING.md) flow.
 > 부트스트랩은 [`ONBOARDING.md`](../ONBOARDING.md) 흐름에서 자동 실행됨.

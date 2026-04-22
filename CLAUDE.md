@@ -45,19 +45,20 @@ If you (Claude) detect non-template folders at the vault root that lack a hub `C
 
 ## 2. Hub types / 허브 타입
 
-Two canonical types, one transitional:
+Three knowledge-oriented types + one project-oriented type:
 
-표준 타입 2개, 과도기 타입 1개:
+지식 지향 3가지 + 프로젝트 지향 1가지:
 
 | Type | Detection / 감지 | Bootstrap from / 부트스트랩 |
 |---|---|---|
 | `study` | mostly user-authored .md, no/few external sources | `templates/hub-study/` |
 | `research` | mostly external sources (PDF/HTML/clips), few/no user notes | `templates/hub-research/` |
 | `mixed` | both — user notes alongside external sources | use both templates as needed |
+| `project` | time-bounded project with brief, decisions, deliverables + embedded research | `templates/hub-project/` |
 
-**Naming convention:** Folder names may use a type marker as **prefix** (`study-python/`, `research-llm/`) OR **suffix** (`python-study/`, `llm-research/`). Pick one pattern per vault and stay consistent. Bare names (no marker) also work — Claude infers from contents.
+**Naming convention:** Folder names may use a type marker as **prefix** (`study-python/`, `project-hotta/`) OR **suffix** (`python-study/`, `hotta-project/`). For projects with many siblings, nesting under `Projects/<name>/` is also fine. Pick a pattern per vault and stay consistent.
 
-**명명 규칙:** 폴더명은 타입 표시를 **접두**(`study-python/`) 또는 **접미**(`python-study/`)로 가질 수 있다. vault 내 일관성 유지. 표시 없어도 됨 (Claude가 내용으로 추론).
+**명명 규칙:** 폴더명은 타입 표시를 **접두**(`study-python/`, `project-hotta/`) 또는 **접미**(`python-study/`, `hotta-project/`)로. 프로젝트가 여럿이면 `Projects/<name>/` 중첩도 OK. vault 내 일관성 유지.
 
 Type is recorded in the hub's `CLAUDE.md` frontmatter or first paragraph (e.g., `**Hub type:** study`).
 

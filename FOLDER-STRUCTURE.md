@@ -321,3 +321,128 @@ MyVault/                          ← Obsidian vault root (existing)
 **Wikilinks across categories:** Cross-category wikilinks (e.g. linking a Learning page to a 작업 page) work natively — `[[../작업/some-page]]` or use Obsidian's alias system.
 
 카테고리 간 위키링크는 그대로 동작 — `[[../작업/some-page]]` 또는 alias 활용.
+
+---
+
+## 8. Project-bound research / 프로젝트 단위 리서치
+
+When you do research as part of a specific project (e.g. brand strategy for client X), don't dump it into your long-term `Learning/`. Embed a research hub inside the project folder.
+
+특정 프로젝트(예: 클라이언트 X용 브랜드 전략) 중 리서치할 때, 그것을 장기 `Learning/`에 던져두지 마세요. 프로젝트 폴더 안에 research hub를 임베드하세요.
+
+### Why / 이유
+
+| Aspect | Mixed into Learning/ | Embedded in project (recommended) |
+|---|---|---|
+| Lifecycle / 라이프사이클 | Learning is permanent; project ends | Archive whole project folder when done |
+| Context / 맥락 | Industry knowledge mixed with client context | Project deliverables and research live together |
+| Sharing / 공유 | Can't share Learning/ with team | Zip and share project folder |
+| Reuse / 재사용 | Hard to identify "project-only" stuff later | Clear boundary |
+
+### Recommended layout / 권장 구조
+
+```
+MyVault/
+├── CLAUDE.md, templates/        ← template stays at vault root only
+├── Learning/                    ← permanent long-term knowledge
+│   ├── study-python/
+│   └── research-llm/
+│
+└── Projects/
+    └── hotta/                   ← project root
+        ├── CLAUDE.md            ← (optional) project-specific overrides
+        ├── research/            ← LLM Wiki research hub, scoped to project
+        │   ├── raw/             ← industry sources, competitor articles
+        │   └── wiki/
+        │       ├── sources/
+        │       ├── entities/    ← brand, competitors, key people
+        │       └── concepts/    ← industry concepts (grading systems, etc.)
+        ├── deliverables/        ← strategy docs, designs
+        ├── client-comms/        ← meeting notes, emails
+        └── meta/                ← brief, timeline, project mgmt
+```
+
+The `research/` subfolder is just a research-type hub at a different depth. Templates and methodology are inherited from vault root.
+
+`research/` 서브폴더는 깊이만 다른 research-type hub일 뿐. 템플릿·방법론은 vault 루트에서 상속.
+
+> **Bootstrap this from [`templates/hub-project/`](templates/hub-project/)** — it includes `meta/` (brief, timeline, stakeholders, decisions), `deliverables/`, `comms/`, `status/`, and the embedded `research/`.
+> [`templates/hub-project/`](templates/hub-project/)에서 부트스트랩 — `meta/`(브리프·일정·이해관계자·결정), `deliverables/`, `comms/`, `status/`, 내장 `research/` 포함.
+
+### Why a separate `hub-project/` template / 왜 별도 `hub-project/`
+
+PKM (knowledge accumulation) and PM (project management) are different concerns:
+
+PKM(지식 누적)과 PM(프로젝트 관리)은 다른 관심사:
+
+| | PKM (Wiki) | PM (Project) |
+|---|---|---|
+| Unit / 단위 | Concepts, entities, sources | Decisions, deliverables, status |
+| Time / 시간성 | Permanent accumulation | Bounded — start → end |
+| Core question / 핵심 질문 | "What do we know?" | "What did we decide? What did we produce? What's next?" |
+
+The `hub-project/` template bundles **lightweight PM** (brief, ADR-style decisions, stakeholders, weekly status, deliverables index, comms archive) alongside the research hub pattern. **Not a replacement** for dedicated PM tools (Linear, Notion, Asana) — use those for tickets, sprints, time tracking, etc.
+
+`hub-project/`는 research hub 패턴에 **경량 PM** (브리프·ADR 결정·이해관계자·주간 status·산출물 인덱스·커뮤니케이션 아카이브)을 번들. 전용 PM 도구(Linear, Notion, Asana)를 **대체하지 않음** — 티켓·스프린트·시간 추적 등은 그쪽에.
+
+### When to also keep something in Learning/ / Learning/에도 둘지 결정
+
+Some research splits naturally:
+
+리서치는 자연스럽게 둘로 나뉠 수 있음:
+
+| Type | Where it goes / 어디로 |
+|---|---|
+| **General industry knowledge** (reusable across future projects) | `Learning/research-<industry>/` |
+| **Project-specific** (this client, this brief, this competitor analysis) | `Projects/<name>/research/` |
+
+Cross-link with relative wikilinks:
+
+상대 경로 위키링크로 cross-link:
+
+```markdown
+<!-- in Projects/hotta/research/wiki/index.md -->
+관련 일반 지식 / Related general knowledge:
+- [[../../../Learning/research-japanese-tea-industry/wiki/concepts/matcha-grading]]
+- [[../../../Learning/research-japanese-tea-industry/wiki/entities/uji-region]]
+```
+
+**Decision rule / 판단 기준:**
+
+- "다음 일본 F&B 프로젝트에서 또 쓸 것 같다" → Learning/
+- "이번 한 번뿐" → Project/ 안에만
+- 헷갈리면 → 일단 Project/ 안에. 두 번째 프로젝트에서 재사용 패턴이 보이면 그때 Learning/으로 승격.
+  When in doubt → keep in Project/ first. Promote to Learning/ only when reuse pattern actually emerges in a 2nd project.
+
+### Project lifecycle / 프로젝트 라이프사이클
+
+```bash
+# Active project
+Projects/hotta/
+
+# Project ends — archive
+mv Projects/hotta Projects/_archive/2026-04-hotta
+# or zip externally
+zip -r ~/archive/2026-04-hotta.zip Projects/hotta && rm -rf Projects/hotta
+
+# Optionally extract reusable parts to Learning/
+# (only if you noticed truly reusable concepts during the project)
+```
+
+Learning/ stays clean of project-specific noise. Industry knowledge accumulates across projects, which is the actual long-term win.
+
+Learning/은 프로젝트별 노이즈 없이 깨끗하게 유지. 산업 지식만 프로젝트 간에 누적됨 — 그게 진짜 장기 이득.
+
+### ONBOARDING.md and nested hubs / 중첩된 허브와 ONBOARDING
+
+The default ONBOARDING scans hubs at vault root. For nested layouts (`Projects/<name>/research/`), tell Claude explicitly:
+
+기본 ONBOARDING은 vault 루트의 hub를 스캔. 중첩 구조(`Projects/<name>/research/`)는 Claude에게 명시적으로:
+
+```
+"Projects/hotta/research를 research-type hub로 부트스트랩해 줘"
+```
+
+Claude applies `templates/hub-research/` structure at that path.
+
+Claude가 그 경로에 `templates/hub-research/` 구조를 적용.
