@@ -32,7 +32,9 @@ List every subfolder in your existing Learning folder. Label each one of:
 | `study` | 체계적으로 정리된 .md 노트 모음. 사용자가 직접 작성. 원본 자료(PDF/HTML)는 거의 없음. | Python 학습 정리, 디자인 시스템 학습 정리 |
 | `research` | 외부 자료(PDF, 웹클립, 논문) 더미. LLM이 읽고 위키로 만들 대상. | LLM 논문 모음, 특정 토픽 자료 모음 |
 | `mixed` | 정리된 노트 + 원본 자료가 섞여 있음. | 학습 노트와 참고 논문이 같이 든 폴더 |
-| `project` | 기간 한정 프로젝트 — 브리프·결정·산출물·status가 섞여 있음. | Hotta 말차 브랜드 프로젝트, 특정 제품 런칭 리서치 |
+
+> Time-bounded **projects** (client work, deliverables) belong in the [project-template](https://github.com/frognation/project-template) repo, not here. If you have project folders, install project-template as a sibling (usually `MyVault/Projects/`) and move them there instead.
+> 기간 한정 **프로젝트**는 여기 말고 [project-template](https://github.com/frognation/project-template)으로. 프로젝트 폴더가 있으면 project-template을 형제 폴더(보통 `MyVault/Projects/`)로 설치 후 거기로.
 
 판단 기준 / Decision rules:
 - `.md` 파일 위주에 본인이 직접 쓴 노트 → **study**
@@ -133,27 +135,24 @@ For EACH candidate folder, run this decision tree:
 각 후보 폴더에 대해 다음 결정 트리 적용:
 
 ```
-1. Folder has `meta/brief.md` OR lives under `Projects/`?
-   → project
+1. Folder has project-management indicators (meta/brief.md, deliverables/, client-*, contract*)?
+   → STOP and tell user: "This looks like a project, not a learning hub. Move it to your project-template folder (e.g. ~/Vault/Projects/)."
 
-2. Folder has `raw/` with content AND no project-management files?
+2. Folder has `raw/` with content?
    → research (already partly bootstrapped)
 
 3. Folder name has type marker (prefix OR suffix)?
    - starts with `study-` OR ends with `-study` → study
    - starts with `research-` OR ends with `-research` → research
    - starts with `mixed-` OR ends with `-mixed` → mixed
-   - starts with `project-` OR ends with `-project` → project
 
 4. Count files at folder root and depth ≤2:
    - md_count = number of .md files
    - source_count = number of .pdf / .html / .epub / .docx / image / audio / video files
-   - Has stakeholder/deliverable/timeline indicators (e.g. `client-*`, `brief*`, `deliverable*`) → project candidate
 
-   - md_count ≥ 5 AND source_count ≤ 2 AND no project indicators → study
+   - md_count ≥ 5 AND source_count ≤ 2 → study
    - source_count ≥ 5 AND md_count ≤ 2 → research
    - Both ≥ 5 → mixed
-   - Project indicators present (brief, deliverables, comms with clients, decisions) → project
    - Both small → ASK user
 
 5. If still ambiguous → ASK user

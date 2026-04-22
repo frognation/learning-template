@@ -175,6 +175,7 @@ Full design rationale: [FOLDER-STRUCTURE.md](FOLDER-STRUCTURE.md).
 - [`CLAUDE.md`](CLAUDE.md) — root schema for the LLM
 - [`ONBOARDING.md`](ONBOARDING.md) — **first-run integration guide ⭐**
 - [`FOLDER-STRUCTURE.md`](FOLDER-STRUCTURE.md) — multi-hub design
+- [`TEMPLATE-SYNC.md`](TEMPLATE-SYNC.md) — **template ↔ personal vault sync workflow ⭐**
 
 ### Templates / 템플릿
 
